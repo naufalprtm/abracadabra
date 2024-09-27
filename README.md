@@ -55,8 +55,9 @@ This bot project allows you to interact with Telegram bots, manage sessions, and
     - Put in your **actual** API credentials. If you don’t know where to find them, **Google it** like everyone else:
       ```env
       # For Major Bot
-      TELEGRAM_BOT_TOKEN=your_bot_token
-      AUTHORIZED_USERS=your_telegram_id
+      # TELEGRAM_BOT_TOKEN=your_bot_token
+      # AUTHORIZED_USERS=your_telegram_id
+      # 
       API_ID=your_api_telegram
       API_HASH=your_api_hash_telegram
       ```

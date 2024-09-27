@@ -249,6 +249,7 @@ async function main(auth, account) {
 // Main processing function for multiple accounts
 async function processAccounts(accounts) {
     const totalAccounts = accounts.length;
+    const firstAccountStartTime = new Date();
     const batchSize = 1; // Set your desired batch size here
 
     for (let i = 0; i < totalAccounts; i += batchSize) {

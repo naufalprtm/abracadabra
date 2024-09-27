@@ -1,0 +1,51 @@
+# Ignore environment files
+.env
+
+# Ignore session files
+sessions/
+
+# Ignore data files
+data/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore compiled files
+*.o
+*.out
+*.class
+*.exe
+
+# Ignore backup files
+*~ 
+*.bak
+*.swp
+
+# Ignore package manager files
+node_modules/
+bower_components/
+vendor/
+
+# Ignore build directories
+build/
+dist/
+
+# Ignore cache files for JavaScript
+.cache/
+*.cache
+.cache/
+jspm_packages/
+*.npmrc
+
+# Ignore IDE or editor specific files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db

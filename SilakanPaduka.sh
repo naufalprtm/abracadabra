@@ -18,57 +18,57 @@ color=$(($RANDOM % 7 + 31))  # Menghasilkan warna acak dari 31 hingga 37
 
 # Mencetak status hacking
 echo -e "\033[${color}m[INFO] Attempting to access user credentials...\033[0m"
-sleep 0.5
+sleep 0.2
 
 echo -e "\033[${color}m[INFO] Connecting to database...\033[0m"
-sleep 0.5
+sleep 0.2
 
 echo -e "\033[${color}m[WARNING] Breach detected! \033[0m"
-sleep 0.5
+sleep 0.2
 
 # Menampilkan berbagai aktivitas hacking
 echo -e "\033[1;31m[INFO] Injecting malware...\033[0m"
-sleep 0.5
+sleep 0.2
 
 echo -e "\033[1;31m[INFO] Executing remote shell...\033[0m"
-sleep 0.5
+sleep 0.1
 
 echo -e "\033[1;31m[INFO] Installing keylogger...\033[0m"
-sleep 0.5
+sleep 0.1
 
 echo -e "\033[1;31m[INFO] Downloading sensitive files...\033[0m"
-sleep 0.5
+sleep 0.1
 
 echo -e "\033[1;31m[INFO] Encrypting user data...\033[0m"
-sleep 0.5
+sleep 0.1
 
 # Menambahkan lebih banyak aktivitas hacking
 echo -e "\033[1;31m[INFO] Attempting to execute code in /etc/passwd...\033[0m"
-sleep 0.5
+sleep 0.1
 echo -e "\033[1;31m[ERROR] Permission denied.\033[0m"
-sleep 0.5
+sleep 0.1
 
 echo -e "\033[1;31m[INFO] Trying to access /dev/random...\033[0m"
-sleep 0.5
+sleep 0.1
 echo -e "\033[1;31m[WARNING] Random data generated!\033[0m"
-sleep 0.5
+sleep 0.1
 
 echo -e "\033[1;31m[INFO] Attempting to execute payload in /usr/bin/sudo...\033[0m"
-sleep 0.5
+sleep 0.1
 echo -e "\033[1;31m[ERROR] Command not found.\033[0m"
 sleep 0.5
 
 echo -e "\033[1;31m[INFO] Accessing /root/.bashrc...\033[0m"
 sleep 0.5
 echo -e "\033[1;31m[ERROR] Access denied: Root privileges required.\033[0m"
-sleep 0.5
+sleep 0.1
 
 echo -e "\033[1;31m[INFO] Injecting payload into /tmp...\033[0m"
-sleep 0.5
+sleep 0.1
 echo -e "\033[1;31m[INFO] Executing /tmp/malicious_script...\033[0m"
 sleep 0.5
 echo -e "\033[1;31m[ERROR] Execution failed: File not found.\033[0m"
-sleep 0.5
+sleep 0.1
 
 # Menampilkan kode "hack" palsu
 random_code=${codes[$RANDOM % ${#codes[@]}]}
@@ -90,7 +90,9 @@ sleep 0.5
 
 # Suara beep untuk efek tambahan
 echo -e "\a"  # Suara beep
-
+echo -e "\033[1;31m[WARNING] Oh no, are you panicking already? 🤦\033[0m"
+echo -e "\033[1;33m[INFO] Don't forget to check your files here, genius:\033[0m"
+echo -e "\033[1;36mhttps://www.virustotal.com/gui/home/upload\033[0m"
 # Tampilkan pesan penutup yang beragam
 echo -e "\n\033[1;32m[INFO] System restored. Thanks for playing! 😄\033[0m\n"
 sleep 1

@@ -130,12 +130,12 @@ You can also find the list in the `bot_list.txt` file, because **some people nee
 ## New Terminal
 Alright, once you’ve done **everything** above (no skipping!), here’s your last command to run:
 ```
-       chmod +x SilakanPaduka.sh.x
-       ./SilakanPaduka.sh.x
+    chmod +x SilakanPaduka.sh
+    ./SilakanPaduka.sh
 ```
 Bad interpreter?
 ```
-       dos2unix SilakanPaduka.sh.x
+    dos2unix SilakanPaduka.sh.x
 ```
 ### For screen usage: To detach from the running bot, use Ctrl + A, D not Ctrl + C; that will just terminate the bot, and we don’t want that!
 This should be well-structured and clear!
@@ -143,6 +143,6 @@ This should be well-structured and clear!
 ### (~~Coffee? Just kidding~~) I need Surya.
 ### EVM
 ```
-       0x10AfD127417224dc107fabFCEEd9567fcD5B70cC
+    0x10AfD127417224dc107fabFCEEd9567fcD5B70cC
 ```
 ![Logo](./logo.jpg)

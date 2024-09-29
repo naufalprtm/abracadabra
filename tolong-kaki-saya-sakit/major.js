@@ -4,7 +4,7 @@ const colors = require("colors");
 const { DateTime } = require("luxon");
 const config = require("./config/major-config");
 const { spawn } = require("child_process");
-const { printBanner } = require('./banner/galkurta-banner.js');
+const printBanner = require("./banner/galkurta-banner.js");
 
 printBanner();
 

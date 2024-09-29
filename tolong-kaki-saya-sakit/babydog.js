@@ -5,7 +5,7 @@ const colors = require("colors/safe");
 const readline = require("readline");
 const { performance } = require("perf_hooks");
 const winston = require("winston");
-const { printBanner } = require('./banner/galkurta-banner.js');
+const printBanner = require("./banner/galkurta-banner.js");
 
 printBanner();
 // Create a custom logger using Winston

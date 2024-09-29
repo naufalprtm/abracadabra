@@ -4,7 +4,7 @@ const axios = require("axios");
 const colors = require("colors");
 const readline = require("readline");
 const { DateTime } = require("luxon");
-const { printBanner } = require('./banner/galkurta-banner.js');
+const printBanner = require("./banner/galkurta-banner.js");
 
 class Fintopio {
   constructor() {

@@ -5,7 +5,7 @@ const readline = require("readline");
 const { DateTime } = require("luxon");
 const crypto = require("crypto");
 const winston = require("winston");
-const { printBanner } = require('./banner/galkurta-banner.js');
+const printBanner = require("./banner/galkurta-banner.js");
 
 printBanner();
 

@@ -4,7 +4,7 @@ const axios = require("axios");
 const winston = require("winston");
 const readline = require("readline");
 const prompt = require("prompt-sync")({ sigint: true });
-const { printBanner } = require('./banner/galkurta-banner.js');
+const printBanner = require("./banner/galkurta-banner.js");
 
 printBanner();
 

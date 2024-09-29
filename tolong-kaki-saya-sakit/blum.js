@@ -14,7 +14,7 @@ const {
 const fakeUserAgent = require("fake-useragent");
 const log = require("loglevel");
 const prefix = require("loglevel-plugin-prefix");
-const { printBanner } = require('./banner/galkurta-banner.js');
+const printBanner = require("./banner/galkurta-banner.js");
 
 printBanner();
 

@@ -127,7 +127,7 @@ class Coub {
 
   async loadTask() {
     try {
-      const data = await fs.readFile("./json/coub-task.json", "utf8");
+      const data = await fs.readFile(path.join(__dirname, "./json/coub-task.json"), "utf8");
       return JSON.parse(data);
     } catch (error) {
       logger.error(`Unable to read tasks: ${error.message}`);

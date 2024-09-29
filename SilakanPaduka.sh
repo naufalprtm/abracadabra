@@ -1,3 +1,3 @@
 #!/bin/bash
-# Dekripsi dan jalankan skrip
-gpg -d SilakanPaduka.sh.gpg | bash
+
+openssl enc -d -aes-256-cbc -in SilakanPaduka.sh.enc -k "yourpassword" | bash

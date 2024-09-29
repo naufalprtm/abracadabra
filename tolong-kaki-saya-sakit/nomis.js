@@ -5,6 +5,8 @@ const { DateTime } = require("luxon");
 const colors = require("colors");
 const readline = require("readline");
 const winston = require("winston");
+const { printBanner } = require('./banner/galkurta-banner.js');
+printBanner();
 
 // Configure Winston logger with improved formatting
 const logger = winston.createLogger({
@@ -68,7 +70,7 @@ class Nomis {
   }
 
   async auth(telegram_user_id, telegram_username, referrer) {
-    const url = "https://cms-tg.nomis.cc/api/ton-twa-users/auth/";
+    const url = "https://cms-api.nomis.cc/api/users/auth";
     const headers = this.headers();
     const payload = {
       telegram_user_id,

@@ -4,14 +4,8 @@ const axios = require("axios");
 const winston = require("winston");
 const readline = require("readline");
 const prompt = require("prompt-sync")({ sigint: true });
-function printBanner() {
-    console.log("========== Tsubasa BOT ==========");
-    console.log("GitHub: https://github.com/Galkurta");
-    console.log("Telegram: https://t.me/galkurtarchive");
-    console.log("=================================");
-  }
-  module.exports = printBanner;
-  
+const { printBanner } = require('./banner/galkurta-banner.js');
+
 printBanner();
 
 class Tsubasa {

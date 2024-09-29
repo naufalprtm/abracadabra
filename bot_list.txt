@@ -2,9 +2,11 @@
 @blumCryptobot
 @Binance_Moonbix_bot
 @TsubasaRivalsBot
-@catsgang_bot
 @theFreeDogs_bot
 @BabyDogePAWS_Bot
 @NomisAppBot
 @fintopio
 @major
+@BybitCoinsweeper_Bot
+@claytoncoinbot
+@coub

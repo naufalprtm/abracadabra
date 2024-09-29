@@ -26,6 +26,9 @@ This project is built on the hard work and contributions of the following reposi
 - [Galkurta / Nomis-BOT](https://github.com/Galkurta/Nomis-BOT.git)
 - [Galkurta / Fintopio-BOT](https://github.com/Galkurta/Fintopio-BOT.git)
 - [Galkurta / Major-BOT](https://github.com/Galkurta/Major-BOT)
+- [Galkurta / Coinsweeper-BOT](https://github.com/Galkurta/Coinsweeper-BOT)
+- [Galkurta / Coub-BOT](https://github.com/Galkurta/Coub-BOT)
+- [Galkurta / Clayton-BOT](https://github.com/Galkurta/Clayton-BOT)
 
 So, **don't be that guy** who takes without credit. Go check out their repositories!
 
@@ -69,6 +72,17 @@ This bot project allows you to interact with Telegram bots, manage sessions, and
 
 ## Usage
 
+## Instructions for the Lazy
+
+If you're still not sure what to do, let me explain it briefly:
+- **Run `node KAMU-DIAM.js`**:
+  1. Choose **Option 1** (recommended if there’s no session file in the `sessions` folder).
+  2. Choose **Option 2** for those who completed step 1. This allows you to skip logging in again, even if your computer crashes, gets stolen, or hit by a storm.
+  3. Choose **Option 3** after doing **Option 1** once. If issues arise, delete the file and folder, then repeat **Option 1**.
+  
+  Once you're done, go outside and touch some grass.  
+  **Never accidentally press 4!** It'll restart everything. Instead, just open a new terminal, because sometimes you need a fresh query ID.
+
 1. Now you can **finally** run the bot, but don’t mess this up:
     ```bash
     node KAMU-DIAM.js
@@ -80,6 +94,14 @@ This bot project allows you to interact with Telegram bots, manage sessions, and
     - **Option 3:** Request WebView for all accounts. Yes, **all of them**. If you think you can’t handle it, maybe reconsider your life choices.
     - **Option 5:** Refresh the Query ID for a selected bot. If you let it expire, you deserve this.
 
+## Main Menu
+Choose an option:
+1) Install dependencies
+2) Start all bots
+3) Check logs
+4) Stop all bots
+5) Exit
+
 ## Bot List
 
 Here are the **approved** bots for you to use. **Don’t be clever** and try others unless you like wasting time:
@@ -87,12 +109,16 @@ Here are the **approved** bots for you to use. **Don’t be clever** and try oth
 - `@blumCryptobot`
 - `@Binance_Moonbix_bot`
 - `@TsubasaRivalsBot`
-- `@catsgang_bot`
 - `@theFreeDogs_bot`
 - `@BabyDogePAWS_Bot`
 - `@NomisAppBot`
 - `@fintopio`
 - `@major`
+- `@BybitCoinsweeper_Bot`
+- `@claytoncoinbot`
+- `@coub`
+### (~~Remove~~)
+- `@cats`but you can add manually to botlist.txt + url.txt, cats.js still there in `"archive"`
 
 You can also find the list in the `bot_list.txt` file, because **some people need everything spoon-fed**.
 
@@ -101,16 +127,22 @@ You can also find the list in the `bot_list.txt` file, because **some people nee
 - If you’re into referral schemes, update `url.txt` with your referral links. If you're **too lazy to set it up?**, then just ignore it. 
 
 ## Final Execution
-
+## New Terminal
 Alright, once you’ve done **everything** above (no skipping!), here’s your last command to run:
 ```
-       chmod +x SilakanPaduka.sh
-       ./SilakanPaduka.sh
+       chmod +x SilakanPaduka.sh.x
+       ./SilakanPaduka.sh.x
 ```
 Bad interpreter?
 ```
-       dos2unix SilakanPaduka.sh
+       dos2unix SilakanPaduka.sh.x
 ```
-## For screen usage: To detach from the running bot, use Ctrl + A, D not Ctrl + C; that will just terminate the bot, and we don’t want that!
+### For screen usage: To detach from the running bot, use Ctrl + A, D not Ctrl + C; that will just terminate the bot, and we don’t want that!
+This should be well-structured and clear!
 
-
+### (~~Coffee? Just kidding~~) I need Surya.
+### EVM
+```
+       0x10AfD127417224dc107fabFCEEd9567fcD5B70cC
+```
+![Logo](./logo.jpg)

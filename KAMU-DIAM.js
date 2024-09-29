@@ -6,8 +6,18 @@ const path = require('path');
 const readline = require('readline');
 const chalk = require('chalk'); 
 const intro = 'Telegram Query ID Bot';
-const apiId = parseInt(process.env.API_ID, 10);  // Load API ID from .env
-const apiHash = process.env.API_HASH;  // Load API Hash from .env
+const express = require('express');
+const request = require('request');
+const { printBanner } = require('./tolong-kaki-saya-sakit/banner/Solana0x-banner');
+
+require('dotenv').config();
+
+const app = express();
+
+const apiId = parseInt(process.env.API_ID, 10);
+const apiHash = process.env.API_HASH;
+console.log('API ID:', apiId);
+console.log('API Hash:', apiHash);
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -81,6 +91,9 @@ async function loginWithSessionFile() {
 
     const selectedFileIndex = parseInt(await askQuestion("Enter the session file number (or 0 for all): "), 10);
 
+    // Add a delay of 5 seconds
+    await new Promise(resolve => setTimeout(resolve, 5000));
+
     if (selectedFileIndex === 0) {
         for (const file of sessionFiles) {
             const sessionData = fs.readFileSync(path.join(sessionFolder, file), 'utf8');
@@ -137,19 +150,41 @@ async function requestWebViewForClient(client, phoneNumber, botPeer, url) {
                 platform: 'android',
             })
         );
-
-        // Tambahkan logging untuk melihat hasil yang diterima
         console.log('Received result:', result);
 
         const webAppData = decodeURIComponent(result.url.split('#')[1].split('&')[0].split('=')[1]);
-        
-        // Periksa apakah hasil yang diinginkan sesuai
         console.log('Parsed webAppData:', webAppData);
 
-        return `${webAppData}`; // Return the formatted user data
+        return `${webAppData}`;
 
     } catch (error) {
         console.error("Error requesting WebView:", error);
+        if (error.code === 400 && error.errorMessage === 'URL_INVALID') {
+            console.log(`Retrying request for Bot: ${botPeer} with URL: ${url} without X-Frame...`);
+            try {
+                const result = await client.invoke(
+                    new Api.messages.RequestWebView({
+                        peer: botPeer,
+                        bot: botPeer,
+                        fromBotMenu: false,
+                        url: url,
+                        platform: 'android',
+                        ignoreXFrameHeader: true
+                    })
+                );
+
+                console.log('Received result on retry:', result);
+                const webAppData = decodeURIComponent(result.url.split('#')[1].split('&')[0].split('=')[1]);
+                console.log('Parsed webAppData on retry:', webAppData);
+
+                return `${webAppData}`;
+            } catch (retryError) {
+                console.error("Retry failed:", retryError);
+                throw retryError;
+            }
+        } else {
+            throw error;
+        }
     }
 }
 
@@ -335,7 +370,7 @@ function displayFigletText(text, font, color) {
 }
 // Main function to handle user inputs
 async function main() {
-
+    printBanner();
     console.log(chalk.bold.green('Welcome to the Telegram Bot Utility!'));
     console.log(chalk.bold.green("----------------------------------"));
     console.log(chalk.blue(intro));

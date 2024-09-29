@@ -2,7 +2,8 @@ const http = require('http');
 const https = require('https');
 const fs = require('fs');
 const { format } = require('date-fns');
-
+const { printBanner } = require('./banner/Solana0x-banner.js');
+printBanner();
 const url = "https://notpx.app/api/v1";
 const WAIT = 180 * 3 * 1000; // in milliseconds
 const DELAY = 1000; // in milliseconds
@@ -250,7 +251,7 @@ async function main(auth, account) {
 async function processAccounts(accounts) {
     const totalAccounts = accounts.length;
     const firstAccountStartTime = new Date();
-    const batchSize = 1; // Set your desired batch size here
+    const batchSize = 4; // Set your desired batch size here
 
     for (let i = 0; i < totalAccounts; i += batchSize) {
         const batch = accounts.slice(i, i + batchSize);
@@ -266,7 +267,7 @@ async function processAccounts(accounts) {
         const currentTime = new Date();
         const elapsedTime = currentTime - firstAccountStartTime;
 
-        logMessage(`Elapsed time for ${batch.length} accounts: ${(elapsedTime / 1000).toFixed(2)} seconds`, '\x1b[32m');
+        logMessage(`Elapsed time for ${batch.length} accounts: ${(elapsedTime / 10000).toFixed(2)} seconds`, '\x1b[32m');
 
         if (i + batchSize < totalAccounts) {
             await new Promise(resolve => setTimeout(resolve, WAIT));

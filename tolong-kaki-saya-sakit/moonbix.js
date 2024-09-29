@@ -3,6 +3,9 @@ const fs = require('fs');
 const chalk = require('chalk');
 const { format } = require('date-fns');
 const { URL } = require('url');
+const { printBanner } = require('./banner/winsnip-banner.js');
+
+const RESOURCE_ID = 2056;
 
 function isUrlEncoded(url) {
     const decodedUrl = decodeURIComponent(url);
@@ -13,7 +16,6 @@ function isUrlEncoded(url) {
 function urlDecode(encodedUrl) {
     return decodeURIComponent(encodedUrl);
 }
-
 function log(message, level = "INFO") {
     const levels = {
         "INFO": chalk.cyan,
@@ -76,7 +78,7 @@ class MoonBix {
     async userInfo() {
         try {
             const response = await this.session.post('/bapi/growth/v1/friendly/growth-paas/mini-app-activity/third-party/user/user-info', {
-                resourceId: 2056,
+                resourceId: RESOURCE_ID,
             });
             return response.data;
         } catch (e) {
@@ -101,7 +103,7 @@ class MoonBix {
     async solveTask() {
         try {
             const res = await this.session.post('/bapi/growth/v1/friendly/growth-paas/mini-app-activity/third-party/task/list', {
-                resourceId: 2056
+                resourceId: RESOURCE_ID
             });
 
             if (!res || !res.data) {
@@ -132,7 +134,7 @@ class MoonBix {
     async completeGame() {
         try {
             const response = await this.session.post('/bapi/growth/v1/friendly/growth-paas/mini-app-activity/third-party/game/complete', {
-                resourceId: 2056,
+                resourceId: RESOURCE_ID,
                 payload: this.game.payload,
                 log: this.game.log,
             });
@@ -149,7 +151,7 @@ class MoonBix {
         try {
             while (true) {
                 const response = await this.session.post('/bapi/growth/v1/friendly/growth-paas/mini-app-activity/third-party/game/start', {
-                    resourceId: 2056,
+                    resourceId: RESOURCE_ID,
                 });
                 this.gameResponse = response.data;
 
@@ -213,6 +215,7 @@ async function runAccount(index, token, proxy = null) {
 // Main execution function
 (async function main() {
     console.clear();
+    printBanner();
     const proxies = fs.readFileSync('./proxy.txt', 'utf-8').split('\n').map(line => line.trim()).filter(Boolean);
     const tokens = fs.readFileSync('./data/Binance_Moonbix_bot.txt', 'utf-8').split('\n').map(line => line.trim()).filter(Boolean);
 

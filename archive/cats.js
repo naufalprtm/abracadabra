@@ -2,6 +2,9 @@ const fs = require("fs");
 const axios = require("axios");
 const colors = require("colors");
 const readline = require("readline");
+const { printBanner } = require('../tolong-kaki-saya-sakit/banner/galkurta-banner.js');
+
+printBanner();
 
 class CatsAPI {
   constructor() {

@@ -5,7 +5,7 @@ const { DateTime } = require("luxon");
 const colors = require("colors");
 const readline = require("readline");
 const winston = require("winston");
-const { printBanner } = require('./banner/galkurta-banner.js');
+const printBanner = require("./banner/galkurta-banner.js");
 printBanner();
 
 // Configure Winston logger with improved formatting

@@ -263,12 +263,10 @@ log_device_info() {
 install_dependencies  # Install dependencies on first run
 check_node_npm  # Check for node and npm
 
-exit_choice=false
-while ! $exit_choice; do
-update_display() {
-  log_device_info  # Tampilkan informasi perangkat
-  display_usage    # Tampilkan penggunaan CPU dan RAM
-}
+while true; do
+  clear  # Clear the screen
+  log_device_info  # Display device information
+  display_usage  # Display CPU and RAM usage
 # Banner
 echo -e "\n ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄       ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄▄ "
 echo -e "▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌     ▐░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░░▌"

@@ -160,8 +160,8 @@ check_node_npm() {
 install_dependencies() {
   log "Checking and installing dependencies..."
   source ~/.bashrc
-  sudo apt-get update -y
-  sudo apt-get upgrade -y
+  sudo apt-get update
+  sudo apt-get upgrade
   if ! command -v ifstat &> /dev/null; then
     sudo apt-get install -y ifstat
     log "ifstat has been installed."
@@ -177,8 +177,8 @@ start_bots() {
     bot_name=$(basename "$file" .js)
     log "Starting ${GREEN}$bot_name${NC} in screen..."
     
-    if screen -dmS "$bot_name" bash -c "node \"$file\"; exec bash"; then
-      pid=$(screen -ls | grep "$bot_name" | awk '{print $1}' | cut -d'.' -f1)  # Get the PID
+    if sudo screen -dmS "$bot_name" bash -c "node \"$file\"; exec bash"; then
+      pid=$(sudo screen -ls | grep "$bot_name" | awk '{print $1}' | cut -d'.' -f1)  # Get the PID
       log "Session '${GREEN}$bot_name${NC}' has started with PID '${GREEN}$pid${NC}'."
     else
       log "Failed to start $bot_name in screen."
@@ -190,15 +190,15 @@ start_bots() {
 # Function to check logs from screen sessions
 check_logs() {
   log "List of running screen sessions:"
-  screen -ls | grep -Eo '[0-9]+.[a-zA-Z0-9]+' | while read session; do
+  sudo screen -ls | grep -Eo '[0-9]+.[a-zA-Z0-9]+' | while read session; do
     echo -e "${GREEN}$session${NC}"
   done
   
   read -p "Enter the name of the screen session to check (Ex: 440800.nomis): " session_name
   
-  if screen -list | grep -q "$session_name"; then
+  if sudo screen -list | grep -q "$session_name"; then
     log "Checking logs for session ${GREEN}$session_name${NC}..."
-    screen -r "$session_name"
+    sudo screen -r "$session_name"
     log "Example log output for session '${GREEN}$session_name${NC}':"
     log "------------------------------------------------"
     log "INFO: Bot $session_name started successfully."
@@ -215,7 +215,7 @@ check_logs() {
 # Function to stop all bots
 stop_bots() {
   log "Stopping all screen sessions..."
-  pids=$(screen -ls | grep -o '[0-9]*\.[^ ]*' | awk '{print $1}' | tr '\n' ' ')
+  pids=$(sudo screen -ls | grep -o '[0-9]*\.[^ ]*' | awk '{print $1}' | tr '\n' ' ')
 
   if [ -z "$pids" ]; then
     log "No screen sessions are currently running."
@@ -223,7 +223,7 @@ stop_bots() {
   fi
 
   for pid in $pids; do
-    screen -S "$pid" -X quit
+    sudo screen -S "$pid" -X quit
     log "Session '${RED}$pid${NC}' has been stopped."
   done
 
